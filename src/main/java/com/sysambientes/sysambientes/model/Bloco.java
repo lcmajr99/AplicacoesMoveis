@@ -2,10 +2,10 @@ package com.sysambientes.sysambientes.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "blocos")
@@ -20,10 +20,10 @@ public class Bloco extends EntityBase implements Serializable {
     @Column(name = "nome_bloco")
     private String nomeBloco;
 
-    @Column(name = "unidade_id")
-    private String unidadeId;
 
-
+    @OneToMany
+    @JoinColumn(name = "usuario_id")
+    private List<Usuario> usuarioList = new ArrayList<Usuario>();
 
 //________________________________
 
